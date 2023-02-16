@@ -31,46 +31,46 @@
   <script type="module" src="./src/professor-card.js"></script>
   <script>  
     // Create a button outside of your design in your codepen which when clicked makes a duplicate of your card
-    document.querySelector('.dup').addEventListener('click', function(e) {
+    document.querySelector('.dup').addEventListener('click', (e) => {
       const itemToClone = document.querySelector('my-card').cloneNode();
-      document.body.appendChild(itemToclone);
+      document.body.appendChild(itemToClone);
       // console.log(clone);
     });
 
     // Add event listener to delete last card
-    document.querySelector('.del').addEventListener('click', function(e) {
+    document.querySelector('.del').addEventListener('click', (e) => {
       const cards = document.querySelectorAll(".card");
       const lastCard = cards[cards.length - 1];
       lastCard.remove();
     });
 
     // Using JavaScript Events, do the same thing to the card for “hover”
-    card1.addEventListener('mouseover', function(e) {
+    card1.addEventListener('mouseover', (e) => {
       const card = document.getElementById('card1');
       card.style.boxShadow = "0 8px 16px 0 rgba(0,0,0,0.2)";;
     });
-    card1.addEventListener('mouseleave', function(e) {
+    card1.addEventListener('mouseleave', (e) => {
       const card = document.getElementById('card1');
       card.style.boxShadow = "";
     });
 
     // On click, toggles the background color of the card
-    backg.addEventListener('click', function(e) {
+    backg.addEventListener('click', (e) => {
       const card = document.getElementById('card1');
       card.style.backgroundColor = "#a71c19";
     });
     
     // On click, change the text of the heading / title you used to “something else”
-    head.addEventListener('click', function(e) {
+    head.addEventListener('click', (e) => {
       const header = document.getElementById('header');
       header.textContent = "Something Else";
     });
 
     //Partner 1: On click of “Details”, don’t link to hax.psu.edu, instead show (or hide) your paragraph description. Do this via JavaScript.
-    btn.addEventListener('click', function(e) {
+    btn.addEventListener('click', (e) => {
       const paragraph = document.querySelector('my-card').shadowRoot.querySelector('paragraph')
       // document.getElementById('paragraph');
-      if(paragraph.textContent == "This is a picture of a bing user"){
+      if(paragraph.textContent === "This is a picture of a bing user"){
         paragraph.textContent = "";  
       } else {
         paragraph.textContent = "This is a picture of a bing user";

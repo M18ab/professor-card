@@ -1,4 +1,5 @@
 import { LitElement, html, css } from 'lit';
+import '@lrnwebcomponents/meme-maker/meme-maker.js';
 
 const prof = new URL('../assets/professoro.jpg', import.meta.url).href;
 
