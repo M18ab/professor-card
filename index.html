@@ -27,52 +27,53 @@
     <button class="del"> Delete! </button>
   </div>  
   
-  <professor-card id="card1">
-    <p slot="author">Spenser McLaughlin</p>
+  <professor-card id="card1>
+    <p slot="bing">This is a picture of a Bing user</p>
   </professor-card>
 
   <script type="module" src="./src/professor-card.js"></script>
   <script>  
     // Create a button outside of your design in your codepen which when clicked makes a duplicate of your card
     document.querySelector('.dup').addEventListener('click', (e) => {
-      const itemToClone = document.querySelector('#card1').cloneNode();
+      const itemToClone = document.querySelector('professor-card').cloneNode(true);
       document.body.appendChild(itemToClone);
       // console.log(clone);
     });
 
     // Add event listener to delete last card
     document.querySelector('.del').addEventListener('click', (e) => {
-      const cards = document.querySelector('#card1');
+      const cards = document.querySelectorAll("professor-card");
       const lastCard = cards[cards.length - 1];
       lastCard.remove();
     });
 
     // Using JavaScript Events, do the same thing to the card for “hover”
+    const card1 = document.querySelector('professor-card');
     card1.addEventListener('mouseover', (e) => {
-      const card = document.getElementById('card1');
+      const card = document.querySelector('professor-card');
       card.style.boxShadow = "0 8px 16px 0 rgba(0,0,0,0.2)";;
     });
     card1.addEventListener('mouseleave', (e) => {
-      const card = document.getElementById('card1');
+      const card = document.querySelector('professor-card');
       card.style.boxShadow = "";
     });
 
     // On click, toggles the background color of the card
+    const backg = document.getElementById('backg');
     backg.addEventListener('click', (e) => {
-      const card = document.getElementById('card1');
+      const card = document.querySelector('professor-card');
       card.style.backgroundColor = "#a71c19";
     });
     
     // On click, change the text of the heading / title you used to “something else”
-    head.addEventListener('click', (e) => {
-      const head = document.getElementById('head');
+    const head = document.getElementById('head');
     const header = document.getElementById('header');
     head.addEventListener('click', (e) => {
       header.textContent = "Something Else";
     });
 
     // Partner 1: On click of “Details”, don’t link to hax.psu.edu, instead show (or hide) your paragraph description. Do this via JavaScript.
-    details.addEventListener('click', (e) => {
+    btn.addEventListener('click', (e) => {
       const paragraph = document.querySelector('#card1').shadowRoot.querySelector('paragraph')
       // document.getElementById('paragraph');
       if(paragraph.textContent === "This is a picture of a bing user"){
