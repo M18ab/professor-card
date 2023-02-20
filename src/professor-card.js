@@ -1,18 +1,17 @@
 import { LitElement, html, css } from 'lit';
-import '@lrnwebcomponents/meme-maker/meme-maker.js';
+import "@lrnwebcomponents/meme-maker/meme-maker.js"; 
 
 const prof = new URL('../assets/professoro.jpg', import.meta.url).href;
 
 export class ProfessorCard extends LitElement {
   static get properties() {
     return {
-      author: {
-        type: String,
-      },
-      professor: {
-        type: String,
-        reflect: true,
-      },
+      author: { type: String,},
+      professor: { type: String, reflect: true,},
+      funFact: { type: String,},
+      topText: { type: String,},
+      BottomText: { type: String,},
+      profURL: { type: String,},
     };
   }
 
@@ -85,6 +84,10 @@ export class ProfessorCard extends LitElement {
     super();
     this.author = 'Spenser McLaughlin';
     this.professor = 'Professor Bryan Ollendyke';
+    this.funFact = 'This is a picture of a Bing user';
+    this.topText = 'Imagine being IT competent';
+    this.bottomText = 'But using BING';
+    this.profURL = 'https://avatars.githubusercontent.com/u/329735?v=4';
   }
 
   render() {
@@ -94,8 +97,14 @@ export class ProfessorCard extends LitElement {
           <div class="card" id="card1">
             <h2 id="header">${this.professor}</h2>
             <h3>By ${this.author}</h3>
-            <img src="${prof}" alt="btopro" />
-            <p id="paragraph"></p>
+              <meme-maker>
+                top-text="${this.topText}"
+                image-url="${this.profURL}"
+                bottom-text="${this.bottomText}" 
+              </meme-maker>
+            <p id="paragraph">  
+              <slot name="bing"></slot>
+            </p>
             <button class="btn" id="btn">Details</button>
           </div>
         </div>

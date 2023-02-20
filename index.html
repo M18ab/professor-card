@@ -26,13 +26,15 @@
     <button class="head" id="head"> Heading! </button>
     <button class="del"> Delete! </button>
   </div>  
-  <professor-card></professor-card>
+  <professor-card>
+    <p slot="bing">This is a picture of a Bing user</p>
+  </professor-card>
 
   <script type="module" src="./src/professor-card.js"></script>
   <script>  
     // Create a button outside of your design in your codepen which when clicked makes a duplicate of your card
     document.querySelector('.dup').addEventListener('click', (e) => {
-      const itemToClone = document.querySelector('my-card').cloneNode();
+      const itemToClone = document.querySelector('card').cloneNode();
       document.body.appendChild(itemToClone);
       // console.log(clone);
     });
@@ -66,9 +68,9 @@
       header.textContent = "Something Else";
     });
 
-    //Partner 1: On click of “Details”, don’t link to hax.psu.edu, instead show (or hide) your paragraph description. Do this via JavaScript.
+    // Partner 1: On click of “Details”, don’t link to hax.psu.edu, instead show (or hide) your paragraph description. Do this via JavaScript.
     btn.addEventListener('click', (e) => {
-      const paragraph = document.querySelector('my-card').shadowRoot.querySelector('paragraph')
+      const paragraph = document.querySelector('card').shadowRoot.querySelector('paragraph')
       // document.getElementById('paragraph');
       if(paragraph.textContent === "This is a picture of a bing user"){
         paragraph.textContent = "";  
