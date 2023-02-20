@@ -97,15 +97,13 @@ export class ProfessorCard extends LitElement {
           <div class="card" id="card1">
             <h2 id="header">${this.professor}</h2>
             <h3>By ${this.author}</h3>
-              <meme-maker>
-                top-text="${this.topText}"
-                image-url="${this.profURL}"
-                bottom-text="${this.bottomText}" 
-              </meme-maker>
-            <p id="paragraph">  
-              <slot name="bing"></slot>
-            </p>
-            <button class="btn" id="btn">Details</button>
+            <meme-maker
+              top-text="${this.topText}"
+              image-url="${this.profURL}"
+              bottom-text="${this.bottomText}"
+            ></meme-maker>
+            <p id="paragraph"> This is a picture of a bing user </p>
+            <button id="details">Details</button>
           </div>
         </div>
       </div>

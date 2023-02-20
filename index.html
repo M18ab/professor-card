@@ -26,22 +26,23 @@
     <button class="head" id="head"> Heading! </button>
     <button class="del"> Delete! </button>
   </div>  
-  <professor-card>
-    <p slot="bing">This is a picture of a Bing user</p>
+  
+  <professor-card id="card1">
+    <p slot="author">Spenser McLaughlin</p>
   </professor-card>
 
   <script type="module" src="./src/professor-card.js"></script>
   <script>  
     // Create a button outside of your design in your codepen which when clicked makes a duplicate of your card
     document.querySelector('.dup').addEventListener('click', (e) => {
-      const itemToClone = document.querySelector('card').cloneNode();
+      const itemToClone = document.querySelector('#card1').cloneNode();
       document.body.appendChild(itemToClone);
       // console.log(clone);
     });
 
     // Add event listener to delete last card
     document.querySelector('.del').addEventListener('click', (e) => {
-      const cards = document.querySelectorAll(".card");
+      const cards = document.querySelector('#card1');
       const lastCard = cards[cards.length - 1];
       lastCard.remove();
     });
@@ -64,13 +65,15 @@
     
     // On click, change the text of the heading / title you used to “something else”
     head.addEventListener('click', (e) => {
-      const header = document.getElementById('header');
+      const head = document.getElementById('head');
+    const header = document.getElementById('header');
+    head.addEventListener('click', (e) => {
       header.textContent = "Something Else";
     });
 
     // Partner 1: On click of “Details”, don’t link to hax.psu.edu, instead show (or hide) your paragraph description. Do this via JavaScript.
-    btn.addEventListener('click', (e) => {
-      const paragraph = document.querySelector('card').shadowRoot.querySelector('paragraph')
+    details.addEventListener('click', (e) => {
+      const paragraph = document.querySelector('#card1').shadowRoot.querySelector('paragraph')
       // document.getElementById('paragraph');
       if(paragraph.textContent === "This is a picture of a bing user"){
         paragraph.textContent = "";  
