@@ -48,12 +48,11 @@
     });
 
     // Using JavaScript Events, do the same thing to the card for “hover”
-    const card1 = document.querySelector('professor-card');
-    card1.addEventListener('mouseover', (e) => {
-      const card = document.querySelector('professor-card');
-      card.style.boxShadow = "0 8px 16px 0 rgba(0,0,0,0.2)";;
+    const card = document.querySelector('professor-card');
+    card.addEventListener('mouseover', (e) => {
+      document.querySelector('professor-card').name = card;
     });
-    card1.addEventListener('mouseleave', (e) => {
+    card.addEventListener('mouseleave', (e) => {
       const card = document.querySelector('professor-card');
       card.style.boxShadow = "";
     });
@@ -66,22 +65,23 @@
     });
     
     // On click, change the text of the heading / title you used to “something else”
-    const head = document.getElementById('head');
-    const header = document.getElementById('header');
-    head.addEventListener('click', (e) => {
-      header.textContent = "Something Else";
+    document.querySelector('.head').addEventListener('click', (e) => {
+    let professor = prompt("I think it needs a better name, don't you?");
+    if (professor) {
+      document.querySelector('professor-card').professor = professor;
+    } 
     });
 
     // Partner 1: On click of “Details”, don’t link to hax.psu.edu, instead show (or hide) your paragraph description. Do this via JavaScript.
-    btn.addEventListener('click', (e) => {
-      const paragraph = document.querySelector('#card1').shadowRoot.querySelector('paragraph')
-      // document.getElementById('paragraph');
-      if(paragraph.textContent === "This is a picture of a bing user"){
-        paragraph.textContent = "";  
-      } else {
-        paragraph.textContent = "This is a picture of a bing user";
-      }
-    });
+    // btn.addEventListener('click', (e) => {
+    //   const paragraph = document.querySelector('#card1').shadowRoot.querySelector('paragraph')
+    //   // document.getElementById('paragraph');
+    //   if(paragraph.textContent === "This is a picture of a bing user"){
+    //     paragraph.textContent = "";  
+    //   } else {
+    //     paragraph.textContent = "This is a picture of a bing user";
+    //   }
+    // });
   </script>
 </body>
 
