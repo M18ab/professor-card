@@ -12,6 +12,7 @@ export class ProfessorCard extends LitElement {
       topText: { type: String,},
       BottomText: { type: String,},
       profURL: { type: String,},
+      description: {type: String}
     };
   }
 
@@ -35,47 +36,24 @@ export class ProfessorCard extends LitElement {
         border-radius: 25px;
       }
 
-      @media screen and (min-width: 800px) {
+      /* @media screen and (min-width: 800px) {
         .btn {
           visibility: hidden;
         }
-      }
+      } */
 
       @media screen and (max-width: 500px) {
         .card {
           text-transform: var;
           width: var;
           font-size: 4vw;
+          background-color: #a71c19;
+          color: white
         }
-      }
-
-      button {
-        text-transform: uppercase;
-        padding: 8px 8px;
-        margin: 10px;
-        border: 2px dashed white;
-        background-color: #a71c19;
-        color: white;
       }
 
       img {
         margin: 25px;
-      }
-
-      /* .card:hover {
-        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-      } */
-
-      button:hover {
-        border: 2px dashed #a71c19;
-        background-color: white;
-        color: #a71c19;
-      }
-
-      button:focus {
-        border: 2px dashed #a71c19;
-        background-color: white;
-        color: #a71c19;
       }
     `;
   }
@@ -88,6 +66,7 @@ export class ProfessorCard extends LitElement {
     this.topText = 'Imagine being IT competent';
     this.bottomText = 'But using BING';
     this.profURL = 'https://avatars.githubusercontent.com/u/329735?v=4';
+    this.description = 'Details';
   }
 
   render() {
@@ -102,8 +81,12 @@ export class ProfessorCard extends LitElement {
               image-url="${this.profURL}"
               bottom-text="${this.bottomText}"
             ></meme-maker>
-            <p id="paragraph"> This is a picture of a bing user </p>
-            <button id="details">Details</button>
+            <details class="details">
+              <summary>${this.description}</summary>
+              <div>
+                <slot name="bing"></slot>
+              </div>
+            </details>
           </div>
         </div>
       </div>

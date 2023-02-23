@@ -15,6 +15,31 @@
       font-family: sans-serif;
       background-color: #ededed;
     }
+
+    button {
+        text-transform: uppercase;
+        padding: 8px 8px;
+        margin: 10px;
+        border: 2px dashed white;
+        background-color: #a71c19;
+        color: white;
+      }
+
+      button:hover {
+        border: 2px dashed #a71c19;
+        background-color: white;
+        color: #a71c19;
+      }
+
+      button:focus {
+        border: 2px dashed #a71c19;
+        background-color: white;
+        color: #a71c19;
+      }
+      
+      .ProfessorCard:hover {
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+      }
   </style>
   <title>professor-card</title>
 </head>
@@ -22,7 +47,7 @@
 <body>
   <div class>
     <button class="dup"> Duplicate! </button>
-    <button class="backg" id="backg"> Red Background! </button>
+    <!-- <button class="backg" id="backg"> Red Background! </button> -->
     <button class="head" id="head"> Heading! </button>
     <button class="del"> Delete! </button>
   </div>  
@@ -43,8 +68,10 @@
     // Add event listener to delete last card
     document.querySelector('.del').addEventListener('click', (e) => {
       const cards = document.querySelectorAll("professor-card");
-      const lastCard = cards[cards.length - 1];
-      lastCard.remove();
+      if (cards.length !== 1) { 
+        const lastCard = cards[cards.length - 1];
+        lastCard.remove();
+      }
     });
 
     // Using JavaScript Events, do the same thing to the card for “hover”
@@ -58,11 +85,11 @@
     });
 
     // On click, toggles the background color of the card
-    const backg = document.getElementById('backg');
-    backg.addEventListener('click', (e) => {
-      const card = document.querySelector('professor-card');
-      card.style.backgroundColor = "#a71c19";
-    });
+    // const backg = document.getElementById('backg');
+    // backg.addEventListener('click', (e) => {
+    //   const card = document.querySelector('professor-card');
+    //   card.style.backgroundColor = "#a71c19";
+    // });
     
     // On click, change the text of the heading / title you used to “something else”
     document.querySelector('.head').addEventListener('click', (e) => {
@@ -71,17 +98,6 @@
       document.querySelector('professor-card').professor = professor;
     } 
     });
-
-    // Partner 1: On click of “Details”, don’t link to hax.psu.edu, instead show (or hide) your paragraph description. Do this via JavaScript.
-    // btn.addEventListener('click', (e) => {
-    //   const paragraph = document.querySelector('#card1').shadowRoot.querySelector('paragraph')
-    //   // document.getElementById('paragraph');
-    //   if(paragraph.textContent === "This is a picture of a bing user"){
-    //     paragraph.textContent = "";  
-    //   } else {
-    //     paragraph.textContent = "This is a picture of a bing user";
-    //   }
-    // });
   </script>
 </body>
 
