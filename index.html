@@ -16,30 +16,33 @@
       background-color: #ededed;
     }
 
+    
+    .two {
+      display: flex;
+      flex-direction: row;
+    }
+
     button {
-        text-transform: uppercase;
-        padding: 8px 8px;
-        margin: 10px;
-        border: 2px dashed white;
-        background-color: #a71c19;
-        color: white;
-      }
+      text-transform: uppercase;
+      padding: 8px 8px;
+      margin: 10px;
+      border: 2px dashed white;
+      background-color: #a71c19;
+      color: white;
+    }
 
-      button:hover {
-        border: 2px dashed #a71c19;
-        background-color: white;
-        color: #a71c19;
-      }
+    button:hover {
+      border: 2px dashed #a71c19;
+      background-color: white;
+      color: #a71c19;
+    }
 
-      button:focus {
-        border: 2px dashed #a71c19;
-        background-color: white;
-        color: #a71c19;
-      }
-      
-      .ProfessorCard:hover {
-        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-      }
+    button:focus {
+      border: 2px dashed #a71c19;
+      background-color: white;
+      color: #a71c19;
+    }
+
   </style>
   <title>professor-card</title>
 </head>
@@ -50,14 +53,21 @@
     <!-- <button class="backg" id="backg"> Red Background! </button> -->
     <button class="head" id="head"> Heading! </button>
     <button class="del"> Delete! </button>
+    <button onClick="toggleDetails()" class="details">TOGGLE DETAILS</button>
   </div>  
   
-  <professor-card id="card1">
-    <p slot="bing">This is a picture of a Bing user</p>
-  </professor-card>
+  <div class="two">
+    <professor-card id="card1">
+      <p slot="bing">This is a picture of a Bing user</p>
+    </professor-card>
+  </div>
 
   <script type="module" src="./src/professor-card.js"></script>
   <script>  
+    function toggleDetails() {
+      document.querySelector("professor-card").toggleDetails();
+    }
+
     // Create a button outside of your design in your codepen which when clicked makes a duplicate of your card
     document.querySelector('.dup').addEventListener('click', (e) => {
       const itemToClone = document.querySelector('professor-card').cloneNode(true);
@@ -75,14 +85,17 @@
     });
 
     // Using JavaScript Events, do the same thing to the card for “hover”
-    const card = document.querySelector('professor-card');
-    card.addEventListener('mouseover', (e) => {
-      document.querySelector('professor-card').name = card;
-    });
-    card.addEventListener('mouseleave', (e) => {
-      const card = document.querySelector('professor-card');
-      card.style.boxShadow = "";
-    });
+    // const card = document.querySelector('professor-card');
+    // card.addEventListener('mouseover', (e) => {
+    //   card.name = card.getAttribute('name');
+    //   card.style.boxShadow = "inset 0 0 10px rgba(0,0,0,0.5)";
+    //   card.style.borderRadius = "10px";
+    // });
+    // card.addEventListener('mouseleave', (e) => {
+    //   card.name = "";
+    //   card.style.boxShadow = "";
+    //   card.style.borderRadius = "";
+    // });
 
     // On click, toggles the background color of the card
     // const backg = document.getElementById('backg');
