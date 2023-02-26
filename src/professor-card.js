@@ -13,7 +13,7 @@ export class ProfessorCard extends LitElement {
       bottomText: { type: String},
       imgURL: { type: String},
       description: {type: String},
-      shadowColor: {type: String, reflect: true, attribute: 'shadow-color'},
+      shadowColor: {type: Boolean, reflect: true, attribute: 'shadow-color'},
     };
   }
 
