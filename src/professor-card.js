@@ -19,7 +19,7 @@ export class ProfessorCard extends LitElement {
 
   static get styles() {
     return css`
-      :host([shadow-color="true"]) .card {
+      :host([shadow-color]) .card {
         box-shadow: 1px 2px 3px 4px rgba(20,20,20,0.4);
       }
 
@@ -33,7 +33,6 @@ export class ProfessorCard extends LitElement {
         flex-direction: column;
         margin: 10px;
         border-radius: 25px;
-        box-shadow: ;
       }
 
       /* @media screen and (min-width: 800px) {
@@ -57,7 +56,6 @@ export class ProfessorCard extends LitElement {
       }
     `;
   }
-  
 
   constructor() {
     super();
@@ -68,7 +66,7 @@ export class ProfessorCard extends LitElement {
     this.bottomText = 'But using BING';
     this.imgURL = 'https://avatars.githubusercontent.com/u/329735?v=4';
     this.description = 'Details';
-    this.shadowColor = "true";
+    this.shadowColor = false;
   }
 
   toggleDetails() {

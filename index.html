@@ -90,6 +90,14 @@
     //   document.querySelector("professor-card").shadowColor = "true";
     // });
 
+    document.querySelector('professor-card').addEventListener('mouseover', (e) => {
+      document.querySelector('professor-card').shadowColor = true;
+    });
+
+    document.querySelector('professor-card').addEventListener('mouseleave', (e) => {
+      document.querySelector('professor-card').shadowColor = "";
+    });
+
     // card.addEventListener('mouseover', (e) => {
     //   card.name = card.getAttribute('name');
     //   card.style.boxShadow = "inset 0 0 10px rgba(0,0,0,0.5)";
@@ -109,9 +117,9 @@
     
     // On click, change the text of the heading / title you used to “something else”
     document.querySelector('.head').addEventListener('click', (e) => {
-    let professor = prompt("I think it needs a better name, don't you?");
-    if (professor) {
-      document.querySelector('professor-card').professor = professor;
+    let professorName = prompt("I think it needs a better name, don't you?");
+    if (professorName) {
+      document.querySelector('professor-card').professorName = professorName;
     } 
     });
   </script>
