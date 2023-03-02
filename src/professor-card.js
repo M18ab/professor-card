@@ -23,6 +23,10 @@ export class ProfessorCard extends LitElement {
         box-shadow: 1px 2px 3px 4px rgba(20,20,20,0.4);
       }
 
+      :host {
+        display: inline-block;
+      }
+
       .card {
         text-align: center;
         transition: 0.3s;
