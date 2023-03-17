@@ -48,6 +48,9 @@
 </head>
 
 <body>
+  
+  <professor-roster></professor-roster>
+  
   <div class>
     <button class="dup"> Duplicate! </button>
     <!-- <button class="backg" id="backg"> Red Background! </button> -->
@@ -62,7 +65,11 @@
     </professor-card>
   </div>
 
-  <script type="module" src="./src/professor-card.js"></script>
+  <script type="module">
+    import "./src/professor-card.js";
+    import "./src/professor-roster.js";
+  </script>
+  <!-- <script type="module" src="./src/professor-card.js"></script> -->
   <script>  
     function toggleDetails() {
       document.querySelector("professor-card").toggleDetails();
