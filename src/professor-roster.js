@@ -20,7 +20,7 @@ export class ProfessorRoster extends LitElement {
     }
 
     updateRoster() {
-        const address = new URL('../api/roster', import.meta.url).href;
+        const address = '../api/roster';
         fetch(address).then((response) => {
             if (response.ok) {
                 return response.json()
